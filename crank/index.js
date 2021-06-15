@@ -8,7 +8,7 @@ class Crank {
       if (err) {
         utility.log(err.message);
       }
-      utility.log(`crankdb connection setup for ${host}:${port}`);
+      utility.log(`crankdb tcp connection established for ${host}:${port}`);
     });
   }
 }
