@@ -1,4 +1,3 @@
-const Crank = require('./crank');
+const Crank = require("./crank");
 
 const crank = new Crank();
-
