@@ -1,5 +1,5 @@
 const net = require('net');
-const utility = require('./utility');
+const utility = require('../lib/utility');
 
 class Crank {
     constructor(host = 'localhost', port = 9876) {

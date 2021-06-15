@@ -1,4 +1,4 @@
-const Crank = require('./lib/socket');
+const Crank = require('./crank');
 
 const crank = new Crank();
 
