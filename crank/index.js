@@ -28,6 +28,11 @@ class Crank {
     if (typeof key !== "string") utility.throwError("get key must be a string");
     this.send(`get ${key}`, callback);
   }
+
+  delete(key, callback) {
+    if (typeof key !== "string") utility.throwError("get key must be a string");
+    this.send(`del ${key}`, callback);
+  }
 }
 
 module.exports = Crank;
