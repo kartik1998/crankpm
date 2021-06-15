@@ -30,8 +30,17 @@ class Crank {
   }
 
   delete(key, callback) {
-    if (typeof key !== "string") utility.throwError("get key must be a string");
+    if (typeof key !== "string")
+      utility.throwError("delete key must be a string");
     this.send(`del ${key}`, callback);
+  }
+
+  filter(filters = {}, callback) {
+    Object.keys(filters).forEach((key) => {
+      if (typeof key !== "string")
+        utility.throwError("Filter keys can only have String values");
+    });
+    this.send(`find ${filters}`, callback);
   }
 }
 
