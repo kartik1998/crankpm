@@ -21,7 +21,7 @@ class Crank {
     if (key.length > 128)
       utility.throwError("length of key should be within 128 bytes");
     const inputVal = utility.convertJSONToString(value);
-    this.send(`set ${key} ${value}`, callback);
+    this.send(`set ${key} ${inputVal}`, callback);
   }
 
   get(key, callback) {
