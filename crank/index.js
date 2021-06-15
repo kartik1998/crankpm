@@ -23,6 +23,11 @@ class Crank {
     const inputVal = utility.convertJSONToString(value);
     this.send(`set ${key} ${value}`, callback);
   }
+
+  get(key, callback) {
+    if (typeof key !== "string") utility.throwError("get key must be a string");
+    this.send(`get ${key}`, callback);
+  }
 }
 
 module.exports = Crank;
