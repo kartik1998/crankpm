@@ -13,7 +13,8 @@ class Crank {
 
   send(data) {
     this.socket.send(data);
-    return this.socket.receive().toString();
+    const recievedBuffer = this.socket.receive();
+    return recievedBuffer.toString();
   }
 
   set(key, value) {
@@ -25,19 +26,19 @@ class Crank {
 
   get(key) {
     if (typeof key !== 'string') utility.throwError('get key must be a string');
-    this.send(`get ${key}`);
+    return this.send(`get ${key}`);
   }
 
   delete(key) {
     if (typeof key !== 'string') utility.throwError('delete key must be a string');
-    this.send(`del ${key}`);
+    return this.send(`del ${key}`);
   }
 
   filter(filters = {}) {
     Object.keys(filters).forEach((key) => {
       if (typeof key !== 'string') utility.throwError('Filter keys can only have String values');
     });
-    this.send(`find ${filters}`);
+    return this.send(`find ${filters}`);
   }
 }
 
