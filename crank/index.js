@@ -3,10 +3,12 @@ const utility = require('../lib/utility');
 
 class Crank {
   constructor(host = 'localhost', port = 9876) {
-    this.socket = new SocketClientTCP(port, host);
-    // this.socket.connect(port, host, () => {
-    //   utility.log(`crankdb tcp connection established for ${host}:${port}`);
-    // });
+    try {
+      this.socket = new SocketClientTCP(port, host);
+      utility.log(`crankdb tcp connection established for ${host}:${port}`);
+    } catch(err) {
+      utility.log(`connection failure err ${err}`);
+    }
   }
 
   send(data) {
