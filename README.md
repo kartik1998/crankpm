@@ -26,7 +26,7 @@ console.log({ setRes, getRes, delRes, findRes });
 
 ### Expected output:
 
-```
+```javascript
 {
   setRes: '"key set"',
   getRes: '"value"',
