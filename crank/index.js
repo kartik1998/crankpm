@@ -1,41 +1,41 @@
-const net = require('net');
+const { SocketClientTCP } = require('netlinkwrapper');
 const utility = require('../lib/utility');
 
 class Crank {
   constructor(host = 'localhost', port = 9876) {
-    this.socket = new net.Socket();
-    this.socket.connect(port, host, () => {
-      utility.log(`crankdb tcp connection established for ${host}:${port}`);
-    });
+    this.socket = new SocketClientTCP(port, host);
+    // this.socket.connect(port, host, () => {
+    //   utility.log(`crankdb tcp connection established for ${host}:${port}`);
+    // });
   }
 
-  send(data, callback) {
-    this.socket.write(data);
-    this.socket.on('data', (d) => callback(d.toString()));
+  send(data) {
+    this.socket.send(data);
+    return this.socket.receive().toString();
   }
 
-  set(key, value, callback) {
+  set(key, value) {
     if (typeof key !== 'string') utility.throwError('set key must be a string');
     if (key.length > 128) utility.throwError('length of key should be within 128 bytes');
     const inputVal = utility.convertJSONToString(value);
-    this.send(`set ${key} ${inputVal}`, callback);
+    return this.send(`set ${key} ${inputVal}`);
   }
 
-  get(key, callback) {
+  get(key) {
     if (typeof key !== 'string') utility.throwError('get key must be a string');
-    this.send(`get ${key}`, callback);
+    this.send(`get ${key}`);
   }
 
-  delete(key, callback) {
+  delete(key) {
     if (typeof key !== 'string') utility.throwError('delete key must be a string');
-    this.send(`del ${key}`, callback);
+    this.send(`del ${key}`);
   }
 
-  filter(filters = {}, callback) {
+  filter(filters = {}) {
     Object.keys(filters).forEach((key) => {
       if (typeof key !== 'string') utility.throwError('Filter keys can only have String values');
     });
-    this.send(`find ${filters}`, callback);
+    this.send(`find ${filters}`);
   }
 }
 

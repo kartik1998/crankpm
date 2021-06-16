@@ -23,7 +23,10 @@
     "url": "https://github.com/kartik1998/crankpm/issues"
   },
   "homepage": "https://github.com/kartik1998/crankpm#readme",
-  "dependencies": {},
+  "dependencies": {
+    "netlinkwrapper": "^2.0.2",
+    "node-gyp": "^8.1.0"
+  },
   "devDependencies": {
     "eslint": "^7.28.0",
     "eslint-config-airbnb-base": "^14.2.1",
