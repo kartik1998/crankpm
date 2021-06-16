@@ -16,13 +16,23 @@ const crank = new Crank();
 
 const setRes = crank.set("key", "value");
 const getRes = crank.get("key");
-console.log({ setRes, getRes });
+const delRes = crank.delete("key");
+
+crank.set('year', { 2019: 'covid', 2020: 'vaccine' })
+const findRes = crank.find({ 2019: 'covid' });
+
+console.log({ setRes, getRes, delRes, findRes });
 ```
 
 ### Expected output:
 
 ```
-{ setRes: '"key set"', getRes: '"value"' }
+{
+  setRes: '"key set"',
+  getRes: '"value"',
+  delRes: '"key deleted."',
+  findRes: '[{"2019":"covid","2020":"vaccine"}]'
+}
 ```
 
 
