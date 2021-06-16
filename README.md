@@ -18,3 +18,11 @@ const setRes = crank.set("key", "value");
 const getRes = crank.get("key");
 console.log({ setRes, getRes });
 ```
+
+### Expected output:
+
+```
+{ setRes: '"key set"', getRes: '"value"' }
+```
+
+
