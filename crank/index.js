@@ -6,7 +6,7 @@ class Crank {
     try {
       this.socket = new SocketClientTCP(port, host);
       utility.log(`crankdb tcp connection established for ${host}:${port}`);
-    } catch(err) {
+    } catch (err) {
       utility.log(`connection failure err ${err}`);
     }
   }
