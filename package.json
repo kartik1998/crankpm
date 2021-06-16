@@ -1,10 +1,10 @@
 {
   "name": "crankpm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "npm package for crankdb",
   "main": "index.js",
   "scripts": {
-    "test": "node test/index.js"
+    "test": "NODE_ENV=test node test/runner.js"
   },
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
     "package",
     "key",
     "value",
-    "key-value"
+    "key-value",
+    "driver"
   ],
   "author": "Kartik Rawat",
   "license": "UNLICENSED",
@@ -24,6 +25,9 @@
   },
   "homepage": "https://github.com/kartik1998/crankpm#readme",
   "dependencies": {
+    "chai": "^4.3.4",
+    "fs": "0.0.1-security",
+    "mocha": "^9.0.0",
     "netlinkwrapper": "^2.0.2",
     "node-gyp": "^8.1.0"
   },
