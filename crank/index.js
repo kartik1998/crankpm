@@ -34,7 +34,7 @@ class Crank {
     return this.send(`del ${key}`);
   }
 
-  filter(filters = {}) {
+  find(filters = {}) {
     Object.keys(filters).forEach((key) => {
       if (typeof key !== 'string') utility.throwError('Filter keys can only have String values');
     });
