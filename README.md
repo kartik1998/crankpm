@@ -13,7 +13,6 @@ To install run: `npm install https://git@github.com:kartik1998/crankpm.git`
 const Crank = require('crankpm');
 const crank = new Crank();
 
-crank.set("1", "123", (d) => {
-  console.log(d);
-});
+const setRes = crank.set("key", "val");
+console.log(setRes);
 ```
