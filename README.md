@@ -5,7 +5,7 @@ crankpm is the database driver for CrankDB for node js applications.
 # Pre requisites
 
 Setup [CrankDB](https://github.com/shreybatra/crankdb) and get it started.
-To install run: `npm install https://git@github.com:kartik1998/crankpm.git`
+To install run: `crankpm`
 
 # Sample implementation
 
