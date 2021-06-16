@@ -27,4 +27,9 @@ describe('Crank integration test suite', () => {
     const res = crank.find({ 2019: 'covid' });
     expect(res).to.equal('[{"2019":"covid","2020":"vaccine"}]');
   });
+
+  it('should return not found for key that is not persisted', () => {
+    const res = crank.get('untitled');
+    expect(res).to.equal('"Not found"');
+  });
 });
