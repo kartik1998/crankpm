@@ -14,6 +14,7 @@ class Crank {
   send(data) {
     this.socket.send(data);
     const recievedBuffer = this.socket.receive();
+    if (!recievedBuffer) return recievedBuffer;
     return recievedBuffer.toString();
   }
 
@@ -38,7 +39,7 @@ class Crank {
     Object.keys(filters).forEach((key) => {
       if (typeof key !== 'string') utility.throwError('Filter keys can only have String values');
     });
-    return this.send(`find ${filters}`);
+    return this.send(`find ${utility.convertJSONToString(filters)}`);
   }
 }
 
