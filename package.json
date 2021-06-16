@@ -1,6 +1,6 @@
 {
   "name": "crankpm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "npm package for crankdb",
   "main": "index.js",
   "scripts": {
