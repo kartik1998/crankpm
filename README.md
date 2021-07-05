@@ -1,4 +1,4 @@
-# crankpm (CrankDB Node JS driver)
+# [WIP] crankpm (CrankDB Node JS driver)
 
 crankpm is the database driver for CrankDB for node js applications.
 
